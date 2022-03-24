@@ -1,4 +1,4 @@
-var albumBucketName = 'www.john.michelbr.ink-images1';
+var albumBucketName = 'www.ralphsclouds.com-images';
 
 // Initialize the Amazon Cognito credentials provider
 AWS.config.region = 'us-east-1'; // Region
@@ -64,7 +64,7 @@ function viewAlbum(albumName) {
     var bucketUrl = href + albumBucketName + '/';  
 
     data.Contents.shift();
-    shuffleArray(data.Contents);
+    //shuffleArray(data.Contents);
     
     var i = 0;
     var html = "";  
@@ -74,7 +74,7 @@ function viewAlbum(albumName) {
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
 
       //Only set the source on the first 13 images. The rest will get set (and downloaded) when scrolling
-      if (i > -1)
+      if (i > 13)
         html += '<img class="picture" style=" width:25%; cursor:pointer; padding:10px" src="" data-src="' + photoUrl + '" onClick="showImage(\'' + photoUrl + '\')" role="button"/>';
       else
         html += '<img class="picture" style=" width:25%; cursor:pointer; padding:10px" src="' + photoUrl + '" onClick="showImage(\'' + photoUrl + '\')" role="button"/>';
@@ -89,7 +89,7 @@ function viewAlbum(albumName) {
           '<span class="close">&times;</span>',
           '<img class="modal-content" id="img01">',
         '</div>',
-        '<a href=mailto:paul@michelbr.ink?subject=John.Michelbrink>If you have any pictures that you would like to add, please email them to paul@michelbr.ink</a>',
+        /*'<a href=mailto:paul@michelbr.ink?subject=John.Michelbrink>If you have any pictures that you would like to add, please email them to paul@michelbr.ink</a>',*/
       '</div>'
     ] 
 
